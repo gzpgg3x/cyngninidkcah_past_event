@@ -1,17 +1,17 @@
 {% extends "rango/base.html" %}
 
-{% block title %}Register at hackathonAB.ly {% endblock %}
+{% block title %}Register at Foodsurveyce {% endblock %}
 
 {% block body_block %}
 <div class="hero-unit">
-    <h1>Register at hackathonAB.ly</h1>
+    <h1>Register at Foodsurveyce</h1>
     <br/>
 
     <div class="container">
         {% if registered %}
         <p> Thank you for registering.
 
-        <p><a href="/rango/login/">Login</a> when you are ready to use hackathonAB.ly.</p>
+        <p><a href="/rango/login/">Login</a> when you are ready to use Foodsurveyce.</p>
         {% else %}
 
         <form class="form-signin span8" id="user_form" method="post" action="/rango/register/"

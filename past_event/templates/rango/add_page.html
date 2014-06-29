@@ -1,17 +1,17 @@
 {% extends "rango/base.html" %}
 
-{% block title %}Add a New Page to {{ category_name }}{% endblock %}
+{% block title %}Add a Menu Item to {{ category_name }}{% endblock %}
 
 {% block body_block %}
 <div class="hero-unit">
-    <h1>Add Location & Dates</h1>
+    <h1>Add a Menu Item</h1>
 
     <br/>
 
     <div class="container">
 
 		{% if not category_name_url %}
-			<div style="color: red;">The specified Hackathon does not exist!</div>
+			<div style="color: red;">The specified Food Service Event does not exist!</div>
 		{% else %}
         	<form class="span6" id="page_form" method="post" action="/rango/category/{{category_name_url}}/add_page/">
 
@@ -26,7 +26,7 @@
             	{{ field }}
             	{% endfor %}
             	<br/>
-            	<input class="btn btn-primary" type="submit" name="submit" value="Create A Location & Dates"/>
+            	<input class="btn btn-primary" type="submit" name="submit" value="Create A Menu Item"/>
         	</form>
 		{% endif %}
     </div>

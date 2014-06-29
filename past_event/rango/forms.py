@@ -4,7 +4,7 @@ from django import forms
 from rango.models import Page, Category
 
 class CategoryForm(forms.ModelForm):
-    name = forms.CharField(max_length=128, help_text="Please enter the Hackathon name:")
+    name = forms.CharField(max_length=128, help_text="Please enter the Food Service Event name:")
     views = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
     likes = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
 
@@ -14,8 +14,8 @@ class CategoryForm(forms.ModelForm):
         model = Category
 
 class PageForm(forms.ModelForm):
-    title = forms.CharField(max_length=128, help_text="Please enter the Location & Dates:")
-    url = forms.URLField(max_length=200, help_text="Please enter the URL of the Hackathon:")
+    title = forms.CharField(max_length=128, help_text="Please enter the Menu Item:")
+    url = forms.CharField(max_length=300, help_text="Please key in More Details :", widget=forms.widgets.Textarea(attrs={'class': 'categoryText'}))
     views = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
     mylikes = forms.IntegerField(widget=forms.HiddenInput(), initial=0)    
 
@@ -29,16 +29,16 @@ class PageForm(forms.ModelForm):
         # Here, we are hiding the foreign key.
         fields = ('title', 'url', 'views','mylikes')
 
-    def clean(self):
-        cleaned_data = self.cleaned_data
-        url = cleaned_data.get('url')
+    # def clean(self):
+    #     cleaned_data = self.cleaned_data
+    #     url = cleaned_data.get('url')
 
-        # If url is not empty and doesn't start with 'http://', prepend 'http://'.
-        if url and not url.startswith('http://'):
-            url = 'http://' + url
-            cleaned_data['url'] = url
+    #     # If url is not empty and doesn't start with 'http://', prepend 'http://'.
+    #     if url and not url.startswith('http://'):
+    #         url = 'http://' + url
+    #         cleaned_data['url'] = url
 
-        return cleaned_data
+    #     return cleaned_data
 
 class UserForm(forms.ModelForm):
     username = forms.CharField(help_text="Please enter a username.")

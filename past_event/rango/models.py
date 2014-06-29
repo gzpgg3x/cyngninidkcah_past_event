@@ -12,7 +12,7 @@ class Category(models.Model):
 class Page(models.Model):
     category = models.ForeignKey(Category)
     title = models.CharField(max_length=128)
-    url = models.URLField()
+    url = models.CharField(max_length=300)
     views = models.IntegerField(default=0)
     mylikes = models.IntegerField(default=0) 
     #likes = models.IntegerField(default=0)   
